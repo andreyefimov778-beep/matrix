@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Хроники Матрицы — Временная Линия Цивилизации</title>
+  <meta name="description" content="От гибели Атлантиды до 2026 года — тайная история человечества" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════ INTRO SCREEN ═══════════ -->
+<div id="intro-screen">
+  <div class="intro-bg"></div>
+  <div class="intro-map-grid"></div>
+
+  <!-- Corner ornaments -->
+  <div class="intro-corner tl"></div>
+  <div class="intro-corner tr"></div>
+  <div class="intro-corner bl"></div>
+  <div class="intro-corner br"></div>
+
+  <!-- Seal -->
+  <div class="intro-seal"></div>
+
+  <!-- Title -->
+  <h1 class="intro-title">Хроники<br>Матрицы</h1>
+  <p class="intro-sub">Временная линия · 9600 до н.э. — 2026 н.э.</p>
+
+  <div class="intro-divider"></div>
+
+  <button class="enter-btn" id="enter-btn">⚔ &nbsp; Войти в Хроники &nbsp; ⚔</button>
+  <p class="intro-note">Музыка включится автоматически</p>
+</div>
+
+<!-- ═══════════ AUDIO ═══════════ -->
+<audio id="bg-audio" loop preload="none">
+  <source src="assets/soundtrack.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- ═══════════ MAIN PAGE ═══════════ -->
+<div id="main-page">
+
+  <!-- Star field -->
+  <div class="star-field" id="star-field"></div>
+
+  <!-- Nav -->
+  <nav class="site-nav">
+    <a href="#timeline" class="nav-link">⚔ Хроники</a>
+    <a href="#entities" class="nav-link">⚜ Боги и Существа</a>
+    <a href="#principles" class="nav-link">🔮 Принципы</a>
+    <a href="#summary" class="nav-link">📜 Сводная Таблица</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="site-header">
+    <span class="header-ornament">✦ ✦ ✦</span>
+    <h1 class="site-title">Хроники Матрицы</h1>
+    <p class="site-tagline">Временная Линия от Гибели Атлантиды до 2026 года</p>
+    <div class="header-rule">
+      <span class="rule-sword">⚔</span>
+    </div>
+  </header>
+
+  <!-- ═══ TIMELINE ═══ -->
+  <section id="timeline">
+    <div class="timeline-wrapper" id="timeline-container">
+      <!-- Blocks built by JS -->
+    </div>
+  </section>
+
+  <!-- ═══ ENTITIES ═══ -->
+  <section id="entities" style="background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03), transparent);">
+    <div class="bottom-section">
+      <div class="section-header">
+        <h2 class="section-title">Ключевые Существа и Боги</h2>
+        <div class="section-rule">⚜</div>
+      </div>
+      <div class="entities-grid" id="entities-grid">
+        <!-- Built by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRINCIPLES ═══ -->
+  <section id="principles">
+    <div class="bottom-section">
+      <div class="section-header">
+        <h2 class="section-title">Ключевые Принципы и Законы</h2>
+        <div class="section-rule">🔮</div>
+      </div>
+      <div class="principles-grid" id="principles-grid">
+        <!-- Built by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SUMMARY TABLE ═══ -->
+  <section id="summary" style="background: rgba(10,7,3,0.5);">
+    <div class="bottom-section">
+      <div class="section-header">
+        <h2 class="section-title">Сводная Таблица Временной Линии</h2>
+        <div class="section-rule">📜</div>
+        <p style="font-size:12px; color: var(--ink-dim); font-style:italic; margin-top:12px;">Нажмите на строку, чтобы открыть свиток эпохи</p>
+      </div>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Период</th>
+            <th>Тема</th>
+            <th>Контроль</th>
+          </tr>
+        </thead>
+        <tbody id="summary-tbody">
+          <!-- Built by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span class="footer-symbol">✦</span>
+    <p class="footer-text">Хроники Матрицы · Архив Структур Истории · 2026</p>
+  </footer>
+
+</div><!-- /#main-page -->
+
+<!-- ═══════════ MODAL ═══════════ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-scroll">
+
+    <!-- Accent bar -->
+    <div id="modal-accent-bar" style="height:3px; position:absolute; top:0; left:0; right:0;"></div>
+
+    <!-- Header -->
+    <div class="modal-header">
+      <button class="modal-close" id="modal-close">✕</button>
+      <span class="modal-house-icon" id="modal-house-icon"></span>
+      <div class="modal-period" id="modal-period"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-subtitle" id="modal-subtitle"></p>
+    </div>
+
+    <!-- Body -->
+    <div class="modal-body">
+      <div class="modal-section-title">Хроника Событий</div>
+      <div id="modal-events"></div>
+
+      <div class="hidden-meaning-box">
+        <p class="hidden-meaning-text" id="modal-hidden-text"></p>
+      </div>
+
+      <div class="control-badge" id="modal-control-badge">
+        Контроль: <span id="modal-control-text"></span>
+      </div>
+    </div>
+
+    <!-- Footer seal -->
+    <div class="modal-seal">
+      <span class="modal-seal-symbol">⚜</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Audio control -->
+<div class="audio-control" id="audio-btn" title="Музыка">🔇</div>
+
+<!-- ═══════════ ENTITY MODAL ═══════════ -->
+<div class="entity-modal-overlay" id="entity-modal-overlay">
+  <div class="entity-modal-box">
+    <button class="entity-modal-close" id="entity-modal-close">✕</button>
+    <div class="entity-modal-inner">
+      <div class="entity-modal-img-wrap">
+        <img id="entity-modal-img" src="" alt="" />
+      </div>
+      <div class="entity-modal-content">
+        <div class="entity-modal-number" id="entity-modal-number"></div>
+        <h2 class="entity-modal-name" id="entity-modal-name"></h2>
+        <p class="entity-modal-role" id="entity-modal-role"></p>
+        <p class="entity-modal-desc" id="entity-modal-desc"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
